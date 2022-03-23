@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const ProfileCard = () => {
+export const ProfileCard = ({ writer }) => {
   return (
 <div className="card">
           <img src={`/images/${writer.avatar}.png`}
