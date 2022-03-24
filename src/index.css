@@ -1,10 +1,12 @@
-*{
+* {
   margin: 0;
   padding: 0;
 }
-body{
+
+body {
   background-color: #ffdeca;
 }
+
 h1 {
   text-align: center;
   margin: 20px;
@@ -32,22 +34,19 @@ h1 {
   transition: all 0.3s ease-in-out;
 }
 
-
-
-  .cardContent {
-    height: 3000px;
-  }
-
- .bioWrap{
-   color: whitesmoke;
-   margin: 15px;
-   text-align:justify;
-
- }
-
 .card:hover {
-  transform: scale(1.03);
+  transform: scale(1.01);
   box-shadow: 5px 5px 10px whitesmoke;
+}
+
+.cardContent {
+  height: 300px;
+}
+
+.bioWrap {
+  color: whitesmoke;
+  margin: 15px;
+  text-align: justify;
 }
 
 .textGroup {
@@ -56,28 +55,40 @@ h1 {
   color: white;
 }
 
-.container {
+.infoText {
+  margin: 20px 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.action {
+  margin-top: 50px;
+  padding: 20px;
   display: flex;
-  flex-wrap: wrap;
-  max-width: 80%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.actionBtn {
+  width: 90%;
   margin: auto;
+  color: #2c1203;
+  font-size: 18px;
+  padding: 5px 0;
+  margin: 5px 0;
+  text-transform: uppercase;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: all 0.3s ease;
 }
 
-.card {
-  margin: 20px auto;
-  max-width: 300px;
-  background: coral;
-  box-shadow: 3px 2px 3px silver;
-  transition: all 0.3s ease-in-out;
+.actionBtn:hover {
+  background-color: #ffdeca;
 }
 
-.card:hover {
-  transform: scale(1.03);
-  box-shadow: 5px 5px 10px whitesmoke;
-}
-
-.textGroup {
-  padding: 10px 0;
-  text-align: center;
-  color: white;
+.actionBtn:active {
+  transform: scale(0.987);
 }
