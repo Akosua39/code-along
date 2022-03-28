@@ -3,65 +3,35 @@ import './App.css';
 // import writers from './writers';
 import ProfileCard  from './ProfileCard';
 import { useEffect, useState } from 'react';
+import { getDefaultNormalizer } from '@testing-library/react';
+import Profileform from './Components/Profileform';
 
 
 function App() {
-  const[data, setData] = useState({
-    writers: [],
-    loading: false,
-  });
+   const[allProfile, setAllProfile] = useState([
+     {
+       firstName: "Louisa",
+       lastName: "Mills",
+       email: "millslouisa39@gmail.com",
+       phone: "+233 054 318 0514",
+     },
 
-const handleClick = () => {
-  setData(prevData => ({
-    ...prevData,
-    loading: true,
-  }));
-}
-  setTimeout(() => {
-    const getwriters = async () => {
-      const response = await fetch("/writers.json");
-      const data= await response.json();
-      console.log (data)
-      setData({
-        writers: data,
-        loading: false,
-      });
-      
-    };
-    getwriters();
-   }, 2000);
-
-   if(data.loading) {
-     return(
-       <div>
-         <h1>Writer Profiles</h1>
-         <div className='continer'>
-           <div className='Card action'>
-             <p className='infoText'>loading... </p>
-
-           </div>
-         </div>
-       </div>
-     );
-  }     
-  
+    ]);
+    
+    const submit = (profile) => {
+      setAllProfile(state => ([profile, ...state]));
+    }
+   
   return (
     <div>
       <h1>write profiles</h1>
 
       <div className="container">
-        {data.writers.length=== 0 ? (
-      <div className='card action'>
-        <p className='infoText'> oops... no writer profile found</p>
-        <button className='actionBtn' onClick={handleClick}>
-          Get writers
-          </button>
-          </div>
-        ) : (
-          data.writers.map((writer) => (
+        <Profileform  submit={submit}/>
+        {allProfile.map((writer)  => (
           <ProfileCard key={writer.id} writer={writer}/>
           ))
-        )}
+        }
       </div>
     </div>
 
